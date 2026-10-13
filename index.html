@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kiểm tra từ vựng tiếng Anh THPT</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#1b1f2a;--mu:#667085;--bd:#e3e6ee;--pr:#3b5bdb;--ok:#2b9a5b;--okb:#e6f6ed;--no:#d64545;--nob:#fdeaea;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#12141b;--card:#1c2030;--tx:#e8eaf2;--mu:#98a0b5;--bd:#2c3248;--pr:#7c93ff;--ok:#4cc58a;--okb:#16301f;--no:#ff7676;--nob:#3a1b1b}}
+:root[data-theme=dark]{--bg:#12141b;--card:#1c2030;--tx:#e8eaf2;--mu:#98a0b5;--bd:#2c3248;--pr:#7c93ff;--ok:#4cc58a;--okb:#16301f;--no:#ff7676;--nob:#3a1b1b}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:640px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:18px;margin-bottom:14px}
+h1{font-size:22px;margin:4px 0 8px}h2{font-size:18px;margin:0 0 10px}
+.mu{color:var(--mu);font-size:14px}
+button{font:inherit;color:inherit;cursor:pointer}
+.btn{width:100%;padding:14px;border:0;border-radius:12px;background:var(--pr);color:#fff;font-weight:600;margin-top:10px;font-size:16px}
+.btn.alt{background:transparent;color:var(--pr);border:1px solid var(--pr)}
+.opt{display:block;width:100%;text-align:left;padding:13px 14px;margin:8px 0;border:1.5px solid var(--bd);border-radius:12px;background:var(--card)}
+.opt:active{transform:scale(.99)}
+.opt.ok{border-color:var(--ok);background:var(--okb)}.opt.no{border-color:var(--no);background:var(--nob)}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--mu)}
+.bar{height:8px;background:var(--bd);border-radius:6px;overflow:hidden;margin:8px 0 14px}
+.bar i{display:block;height:100%;background:var(--pr);width:100%}.bar i.low{background:var(--no)}
+.q{font-size:17px}.q u{text-decoration-thickness:2px;font-weight:600}
+.tag{display:inline-block;font-size:12px;padding:2px 9px;border-radius:20px;background:var(--bd);color:var(--mu);margin-bottom:8px}
+input[type=text]{width:100%;padding:14px;font:inherit;border:1.5px solid var(--bd);border-radius:12px;background:var(--card);color:var(--tx);margin-top:6px}
+.fb{margin-top:12px;padding:12px;border-radius:12px;font-size:15px}.fb.ok{background:var(--okb)}.fb.no{background:var(--nob)}
+.seg{display:flex;gap:8px;margin:8px 0}.seg button{flex:1;padding:10px;border:1.5px solid var(--bd);border-radius:10px;background:var(--card)}.seg button.on{border-color:var(--pr);color:var(--pr);font-weight:600}
+.score{font-size:44px;font-weight:700;color:var(--pr);line-height:1}
+.row{margin:12px 0}.row .l{display:flex;justify-content:space-between;font-size:14px;gap:8px}
+.row .b{height:10px;border-radius:6px;background:var(--okb);overflow:hidden;margin-top:4px}.row .b i{display:block;height:100%;background:var(--no)}
+.w{border-top:1px solid var(--bd);padding:10px 0;font-size:14px}.w:first-child{border:0}
+.hide{display:none}
+</style></head><body><main id="app"></main>
+<script>
+// [phần, nhóm dạng câu, đề, đáp án A-D | null, đáp án, giải thích, điểm]
+const T1="Đồng nghĩa: từ đơn",T2="Đồng nghĩa: cụm động từ",T3="Đồng nghĩa: cụm danh từ",P1="Đa nghĩa: chọn câu đúng nghĩa",P2="Đa nghĩa: từ điền chung 2 chỗ trống",N="Word form: danh từ",A="Word form: tính từ",D="Word form: trạng từ",V="Word form: động từ";
+const Q=[
+[1,T1,"The local authorities are taking strong measures to <u>mitigate</u> the negative effects of environmental pollution on residents' health.",["alleviate","aggravate","eliminate","intensify"],0,"mitigate = làm giảm nhẹ = alleviate. aggravate/intensify là làm nặng thêm."],
+[1,T1,"Regular physical exercise is <u>conducive to</u> maintaining good cardiovascular health and reducing daily stress.",["harmful","beneficial","irrelevant","indifferent"],1,"be conducive to = có lợi cho = beneficial."],
+[1,T1,"Despite numerous setbacks, the young athlete displayed <u>perseverance</u> and finally won the trophy.",["reluctance","determination","hesitation","indifference"],1,"perseverance = sự kiên trì = determination."],
+[1,T2,"The government decided to <u>phase out</u> fossil-fuel vehicles to promote green transportation in major cities.",["introduce gradually","eliminate gradually","purchase massively","produce quickly"],1,"phase out = loại bỏ dần. (phase in mới là đưa vào dần)."],
+[1,T1,"It is <u>imperative</u> that students master fundamental digital skills before entering the modern workforce.",["optional","crucial","trivial","flexible"],1,"imperative = cấp bách, tối quan trọng = crucial."],
+[1,T1,"The new policy has brought about <u>substantial</u> changes in the way public schools organize extracurricular activities.",["negligible","significant","temporary","minor"],1,"substantial = đáng kể = significant."],
+[1,T1,"His explanation was so <u>ambiguous</u> that none of the committee members could understand what he meant.",["vague","lucid","transparent","concise"],0,"ambiguous = mơ hồ = vague."],
+[1,T1,"Young innovators often encounter obstacles when attempting to <u>foster</u> creativity in conventional classroom settings.",["impede","discourage","nurture","neglect"],2,"foster = nuôi dưỡng, thúc đẩy = nurture."],
+[1,T3,"Many marine creatures face the danger of extinction due to <u>habitat destruction</u> and overfishing.",["territory ruin","food scarcity","water shortage","predator decline"],0,"habitat destruction = phá hủy môi trường sống = territory ruin."],
+[1,T2,"After reviewing all applications, the committee chose candidates who <u>stood out</u> from the rest.",["were distinguished","were ignored","blended in","remained unnoticed"],0,"stand out = nổi bật = be distinguished."],
+[2,P1,"Which sentence uses <b>address</b> to mean “to deal with or tackle a problem”?",["The President will deliver a keynote address at the symposium.","Please write your full name and home address on the form.","Urgent measures must be adopted to address the issue of youth unemployment.","When you speak to the judge, you should address him as “Your Honor”."],2,"A: bài diễn văn; B: địa chỉ; D: xưng hô."],
+[2,P1,"Which sentence uses <b>observe</b> to mean “to obey or follow a rule/law”?",["Biologists spent months in the forest to observe wild chimpanzees.","All motorists are legally required to observe the national speed limit.","The journalist observed that the economy was improving.","My family gathers to observe traditional holidays every year."],1,"A: quan sát; C: nhận xét; D: cử hành, kỷ niệm."],
+[2,P2,"1. The hotel can ______ up to five hundred guests in peak seasons.<br>2. We tried to ______ our schedule to his personal requirements.",["accommodate","entertain","contain","provide"],0,"accommodate: chứa được (người) / điều chỉnh cho phù hợp."],
+[2,P1,"Which sentence uses <b>bear</b> to mean “to accept or tolerate a difficult situation”?",["The brown bear is native to North America.","The cherry trees will bear delicious fruit in early summer.","She could no longer bear the immense pressure of working overtime.","The document must bear the signature of the principal."],2,"A: con gấu; B: ra quả; D: mang (chữ ký)."],
+[2,P2,"1. The police decided to drop the murder ______ due to lack of evidence.<br>2. The electric car needs an overnight ______ before a long journey.",["fine","fault","charge","penalty"],2,"charge: lời buộc tội / sự sạc pin."],
+[2,P1,"Which sentence uses <b>appreciate</b> to mean “to increase in value over time”?",["I really appreciate your timely assistance.","Financial experts predict that real estate in this district will appreciate.","Children were taught to appreciate classical music.","We fully appreciate the difficulties your family is experiencing."],1,"A: biết ơn; C: thưởng thức; D: thấu hiểu."],
+[2,P1,"Which sentence uses <b>delicate</b> to mean “requiring careful handling or sensitivity”?",["The antique porcelain vase is extremely delicate and breaks easily.","Negotiation over border disputes is a delicate diplomatic matter.","The chef prepared a dessert with a delicate flavor of vanilla.","The patient has been in delicate health since the surgery."],1,"A: mong manh; C: hương vị thanh nhẹ; D: thể trạng yếu."],
+[2,P2,"1. Reading a classic ______ lets us explore historical settings and human nature.<br>2. The team proposed a ______ method to solve this complex equation.",["fiction","modern","novel","story"],2,"novel: (n) tiểu thuyết / (adj) mới lạ, độc đáo."],
+[2,P1,"Which sentence uses <b>compromise</b> to mean “to expose to danger or weaken”?",["Both parties reached a satisfactory compromise.","She refused to compromise her core principles for wealth.","Leaking confidential data could seriously compromise the security of the system.","Roommates often have to compromise on household chores."],2,"A, B, D: thỏa hiệp, nhân nhượng."],
+[2,P2,"1. Scientists conducted an experiment in a completely ______ environment.<br>2. The company took out a bank loan at a ______ interest rate of five percent.",["stable","fixed","steady","constant"],1,"fixed environment (cố định) / fixed interest rate (lãi suất cố định)."],
+[3,N,"The sudden closure of the steel factory has caused widespread ______ in this industrial town. (EMPLOY)",null,"unemployment","Sau tính từ widespread cần danh từ → unemployment."],
+[3,A,"Plastic bags are convenient, but their widespread use is extremely ______ to terrestrial and marine ecosystems. (HARM)",null,"harmful","be + extremely + adj → harmful."],
+[3,A,"Although the two brothers look alike, they have remarkably ______ personalities and hobbies. (DIFFER)",null,"different","Đứng trước danh từ cần tính từ → different."],
+[3,D,"We need to examine this controversial issue from an ______ objective perspective rather than an emotional one. (INTELLECT)",null,"intellectually","Bổ nghĩa cho tính từ objective cần trạng từ → intellectually."],
+[3,N,"The rapid ______ of metropolitan areas has led to severe traffic congestion and housing shortages. (EXPAND)",null,"expansion","Sau the + adj cần danh từ → expansion."],
+[3,D,"Despite his lack of formal training, he proved to be an ______ capable manager. (EXCEPTION)",null,"exceptionally","Trước tính từ capable cần trạng từ chỉ mức độ → exceptionally."],
+[3,A,"Students are encouraged to develop their ______ thinking skills through debating current affairs. (CRITIC)",null,"critical","critical thinking skills (tư duy phản biện)."],
+[3,V,"Deforestation in mountainous areas has ______ the risk of flash floods and landslides. (HEIGHT)",null,"heightened","has + V3: height → heighten → heightened."],
+[3,N,"Many endangered species are now on the verge of ______ due to illegal poaching and logging. (EXTINCT)",null,"extinction","on the verge of + danh từ → extinction."],
+[3,D,"Thanks to generous donations, the historical pagoda was ______ restored. (BEAUTY)",null,"beautifully","was + adv + V3 (bị động) → beautifully."]
+];
+const BASE={1:30,2:45,3:40},PTS={1:.3,2:.3,3:.4},PN={1:"Phần I · Từ đồng nghĩa",2:"Phần II · Từ đa nghĩa",3:"Phần III · Word formation"};
+let speed=1,run=[],cur=0,res={},t0,dl,tick,done=false;
+const $=s=>document.querySelector(s),app=$("#app"),L="ABCD";
+const norm=s=>s.toLowerCase().replace(/\s+/g," ").trim();
+
+function home(){clearInterval(tick);
+app.innerHTML=`<div class="card"><h1>📘 Kiểm tra từ vựng THPT</h1><p class="mu">30 câu · đồng nghĩa, đa nghĩa, word formation. Tự chấm điểm, mỗi câu có đồng hồ đếm ngược, cuối bài thống kê dạng câu hay sai.</p>
+<h2>Thời gian mỗi câu</h2><div class="seg" id="sp"><button data-v="1" class="on">Chuẩn<br><span class="mu">30–45s</span></button><button data-v="1.5">Thoải mái<br><span class="mu">45–68s</span></button><button data-v="0">Không giới hạn</button></div>
+<p class="mu">Hết giờ = tính sai và chuyển sang xem đáp án.</p><button class="btn" id="go">Bắt đầu làm bài</button></div>`;
+$("#sp").onclick=e=>{const b=e.target.closest("button");if(!b)return;speed=+b.dataset.v;[...$("#sp").children].forEach(x=>x.classList.toggle("on",x===b))};
+$("#go").onclick=()=>start(Q.map((_,i)=>i));}
+function start(ids){run=ids;cur=0;res={};show();}
+function show(){const i=run[cur],q=Q[i],lim=speed?Math.round(BASE[q[0]]*speed):0;done=false;t0=Date.now();dl=t0+lim*1000;
+let body=q[3]?q[3].map((o,k)=>`<button class="opt" data-k="${k}"><b>${L[k]}.</b> ${o}</button>`).join(""):`<input type="text" id="in" placeholder="Nhập dạng đúng của từ…" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"><button class="btn" id="ck">Kiểm tra</button>`;
+app.innerHTML=`<div class="top"><span>Câu ${i+1} · ${cur+1}/${run.length}</span><span id="tm">${lim?lim+"s":"∞"}</span></div><div class="bar"><i id="pb"></i></div>
+<div class="card"><span class="tag">${PN[q[0]]} · ${q[1]}</span><div class="q">${q[2]}</div>${body}<div id="fb"></div></div><div id="nx"></div>`;
+if(q[3])$("#app").querySelectorAll(".opt").forEach(b=>b.onclick=()=>answer(+b.dataset.k));
+else{$("#ck").onclick=()=>answer($("#in").value);$("#in").onkeydown=e=>{if(e.key==="Enter")answer($("#in").value)};}
+clearInterval(tick);if(lim)tick=setInterval(()=>{const r=dl-Date.now();if(r<=0){answer(null,true);return}
+$("#tm").textContent=Math.ceil(r/1000)+"s";const p=$("#pb");p.style.width=(r/(lim*10))+"%";p.classList.toggle("low",r<lim*250);},100);}
+function answer(a,timeout){if(done)return;done=true;clearInterval(tick);
+const i=run[cur],q=Q[i],mcq=!!q[3],sec=(Date.now()-t0)/1000;
+const blank=a===null||(!mcq&&norm(String(a))==="");
+const ok=!blank&&(mcq?a===q[4]:norm(a)===q[4]);
+res[i]={ok,timeout:!!timeout,a:blank?null:a,sec};
+if(mcq){document.querySelectorAll(".opt").forEach((b,k)=>{b.disabled=true;if(k===q[4])b.classList.add("ok");else if(k===a)b.classList.add("no")});}
+else{$("#in").disabled=true;$("#ck").classList.add("hide");}
+const ans=mcq?`${L[q[4]]}. ${q[3][q[4]]}`:q[4];
+$("#fb").innerHTML=`<div class="fb ${ok?"ok":"no"}"><b>${ok?"✔ Chính xác!":timeout?"⏰ Hết giờ.":"✘ Chưa đúng."}</b>${ok?"":` Đáp án: <b>${ans}</b>`}<br>${q[5]}</div>`;
+$("#nx").innerHTML=`<button class="btn" id="nb">${cur+1<run.length?"Câu tiếp theo →":"Xem kết quả"}</button>`;
+$("#nb").onclick=()=>{cur++;cur<run.length?show():result()};$("#nb").scrollIntoView({block:"nearest"});}
+function result(){clearInterval(tick);let sc=0,mx=0,to=0,ts=0;const g={},ws=[];
+run.forEach(i=>{const q=Q[i],r=res[i];mx+=PTS[q[0]];ts+=r.sec;if(r.ok)sc+=PTS[q[0]];if(r.timeout)to++;
+g[q[1]]=g[q[1]]||{n:0,w:0};g[q[1]].n++;if(!r.ok){g[q[1]].w++;ws.push(i)}});
+const rows=Object.entries(g).sort((a,b)=>b[1].w/b[1].n-a[1].w/a[1].n||b[1].w-a[1].w);
+const worst=rows.filter(r=>r[1].w>0);
+app.innerHTML=`<div class="card"><div class="mu">Điểm của bạn</div><div class="score">${sc.toFixed(1)}<span class="mu" style="font-size:20px"> / ${mx.toFixed(1)}</span></div>
+<p class="mu">Đúng ${run.length-ws.length}/${run.length} câu · hết giờ ${to} câu · trung bình ${(ts/run.length).toFixed(0)}s/câu</p>
+<p>${worst.length?`Dạng cần ôn nhất: <b>${worst[0][0]}</b> (sai ${worst[0][1].w}/${worst[0][1].n}).`:"🎉 Không sai câu nào!"}</p></div>
+<div class="card"><h2>Thống kê theo dạng câu (sai nhiều → ít)</h2>${rows.map(([k,v])=>`<div class="row"><div class="l"><span>${k}</span><span>sai ${v.w}/${v.n} (${Math.round(v.w/v.n*100)}%)</span></div><div class="b"><i style="width:${v.w/v.n*100}%"></i></div></div>`).join("")}</div>
+${ws.length?`<div class="card"><h2>Các câu cần xem lại</h2>${ws.map(i=>{const q=Q[i],r=res[i],mine=r.a===null?"(bỏ trống/hết giờ)":q[3]?`${L[r.a]}. ${q[3][r.a]}`:r.a;return`<div class="w"><b>Câu ${i+1}</b> <span class="mu">· ${q[1]}</span><br>Bạn chọn: ${mine}<br>Đáp án: <b>${q[3]?L[q[4]]+". "+q[3][q[4]]:q[4]}</b><br><span class="mu">${q[5]}</span></div>`}).join("")}</div>`:""}
+${ws.length?`<button class="btn" id="rw">Làm lại ${ws.length} câu sai</button>`:""}<button class="btn alt" id="ra">Làm lại toàn bộ</button>`;
+if(ws.length)$("#rw").onclick=()=>start(ws);$("#ra").onclick=home;window.scrollTo(0,0);}
+home();
+</script></body></html>
